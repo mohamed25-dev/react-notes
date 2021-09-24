@@ -111,11 +111,12 @@ function App() {
   }
 
   const deleteNoteHandler = () => {
+    let updatedNotes = notes;
     const noteIndex = notes.findIndex(note => note.id === selectedNote);
-    notes.splice(noteIndex, 1);
+    updatedNotes.splice(noteIndex, 1);
 
     saveToLocalStorage('notes', updatedNotes);
-    setNotes(notes);
+    setNotes(updatedNotes);
 
     setEditing(false);
     setCreating(false);
